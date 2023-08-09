@@ -105,3 +105,72 @@ let goodIncome = true;
 let highCreditScore =true;
 let applicableForLoan = goodIncome || highCreditScore;
 console.log(applicableForLoan);
+//logical operators with non-boolean
+//falsy(false)
+//undefined
+//null
+//''
+//0
+//false
+//not a number(NaN)
+//Anything is not falsy is-> truthy
+let userColor = undefined;
+let defaultColor = 'blue';
+let currentColor = userColor || defaultColor;
+console.log(currentColor);
+//swapping exercise
+let a = 'red';
+let b = 'black'
+let c = a;
+a =b;
+b =c;
+console.log(a);
+console.log(b);
+//control flow
+//if else
+let hour = 22;
+if(hour >= 6 && hour < 12)
+console.log('Good Morning!');
+else if(hour>=12 && hour < 18)
+console.log('Good Afternoon!');
+else
+console.log('Good Evening!');
+//for loop
+for(let i=0; i <= 5;  i++){
+if (i % 2 !==0) console.log(i);
+}
+//while loop
+let i=0;
+while(i <= 5) {
+    if(i % 2 !== 0) console.log(i)
+    i++;
+}
+//do while
+let zo=0;
+do{
+    if(zo % 2 !== 0) console.log(zo);
+    zo++
+}while(zo<=5);
+//for-in
+const man={
+name:'faraz',
+age: 24
+};
+for(let key in man)
+console.log(key , man[key]);
+//for-of
+const colours =['black' , 'yellow' , 'orange'];
+for(let color of colours)
+console.log(color);
+//exercise
+//Max of two numbers
+let num= max(5 , 10);
+console.log(num);
+function max(a, b){
+    return(a > b) ? a : b; 
+}
+//landscape or potrait
+console.log(isLandscape(800, 900));
+function isLandscape(width, height){
+     return(width> height)
+}
