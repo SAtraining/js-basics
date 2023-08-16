@@ -147,3 +147,135 @@ number.forEach((number, index) => console.log(numbber, index));
     });
     console.log(atLeastOnePositive); 
      
+    //Filtering an Array
+    // const nomber=[1, 2, -3, -4]
+    //  const filtered = nomber.filter(value => value >= 0 );
+    // console.log(filtered);
+    
+    //Mapping an Array
+
+    // const nomber=[1, -1, 2, 3]
+     
+    // const items= nomber
+    // .filter(n => n >= 0 )
+    // .map(n => ({value : n}))
+    // .filter(obj => obj.value > 1)
+    //  .map(obj => obj.value);
+
+    // console.log(items);  
+
+    //Reducing an array
+    // const nomber =[1, -1, 2, 3];
+   
+    // const sum = nomber.reduce((accumulator,  currentValue) => accumulator + currentValue
+    // );
+    // console.log(sum);
+
+    //Exercise Array from Range
+    const list = arrayFromRange(-10,-4);
+    console.log(list);
+
+    function arrayFromRange(min,max){
+        const output= [];
+        for (let i=min; i <= max; i++)
+        output.push(i);
+        return output;
+    }
+
+    //Exercise Includes 
+
+// const nomber=[1, -1, 2, 3];
+// console.log(includes(nomber, 4));
+
+// function includes(array, searchElement){
+//     for (let element of array)
+//     if (element === searchElement)
+//     return true;
+//     return false;
+// }
+
+//Exercise Except
+// const nomber = [1, 2, 3, 4];
+// const output = except(nomber,[1,4]);
+// console.log(output);
+
+// function except(array, excluded){
+//     const output=[];
+//     for (let element of array)
+//     if(!excluded.includes(element))
+//     output.push(element);
+//     return output;
+// }
+
+//Exercise Moving an Element
+const nomber=[1, 2, 3, 4];
+const output= move(nomber, 1, -1 );
+
+console.log(output);
+
+function move(array, index, offset){
+const position = index +offset;
+if( position >= array.length ||position < 0 ) {
+    console.error('Invalid Offset');
+    return;
+}
+const output=[...array];
+const element = output.splice(index, 1)[0]
+output.splice(index + offset, 0, element);
+return output;
+}
+
+//Count Occurrence
+const nombers=[1, 2, 3, 4];
+const count =countOccurrence(number, 1);
+console.log(count);
+
+function countOccurrence(array, searchElement){
+  //simple implementation
+    // let count=0;
+    // for(let element of array)
+    // if(element === searchElement)
+    // count++;
+    // return count; 
+//}
+//reducing method
+return array.reduce((accumulator, current) =>{
+const occurrence=(current === searchElement) ? 1 : 0;
+console.log(accumulator, current, searchElement); 
+return accumulator + occurrence;
+
+},0);
+}
+
+//Exercise Get Max
+const namber = [1,2, 3, 4];
+const max = getMax([3]);
+console.log(max);
+
+function getMax(array){
+    if (array.length === 0) 
+    return undefined;
+   
+    // let max = array[0];
+
+    // for(let i=1; i < array.length; i++)
+    // if (array[i] > max)
+    // max = array[i];
+    // return max;
+    return array.reduce((a, b) => (a > b) ? a : b
+    );
+}
+
+//Exercise
+const movies=[
+    {title: 'a', year: 2018, rating: 4.5},
+    {title: 'b', year: 2018, rating: 4.7},
+    {title: 'c', year: 2018, rating: 3},
+    {title: 'd', year: 2017, rating: 4.5},
+];
+const titles = movies
+.filter(m => m.year === 2018 && m.rating >= 4)
+.sort((a, b) => a.rating - b.rating)
+.reverse()
+.map(m => m.title)
+console.log(titles)
